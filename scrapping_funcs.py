@@ -37,9 +37,12 @@ def get_product_ratings(item):
         print(first_product_rating)
         #aria label has value
         rating_blocks = item.find_all('span', {'aria-label': True})
+        # rating_blocks[1] returns delivery date sometimes >> check if its returning None or not int/double value
         num_ratings = rating_blocks[1].text.replace(",","").replace("(", "").replace(")", "")
         print(num_ratings)
     except AttributeError:
+        print('No ratings')
+    except IndexError:
         print('No ratings')
 
 
@@ -48,7 +51,9 @@ def get_product_price(item):
         # extract price
         integer_price = item.find('span', {'class': 'a-price-whole'})
         decimal_price = item.find('span', {'class': 'a-price-fraction'})
-        print(integer_price.text + decimal_price.text)
+        whole_price = integer_price.text + decimal_price.text
+        whole_price = whole_price.replace(",","")
+        print(whole_price)
     except AttributeError:
         print('product has no price listed')
 
@@ -65,9 +70,9 @@ def get_url_string(item):
 def get_data_from_results(search_results):
     for item in search_results:
         get_product_title(item)
+        get_url_string(item)
         get_product_ratings(item)
         get_product_price(item)
-        get_url_string(item)
         next_line='\n'
         print(next_line)
 
