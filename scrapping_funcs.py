@@ -18,11 +18,29 @@ def get_target_url(page: int, keywords: str):
     return search_url
 
 
-def get_one_page(search_url):
-    response_obj = requests.get(search_url, headers=HEADER_FOR_GET_REAUEST)
+def get_soup_format_obj(target_url):
+    response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REAUEST)
     soup_format = BeautifulSoup(response_obj.content, 'html.parser')
-    search_results = soup_format.find_all('div', {'class' : 's-result-item', 'data-component-type' : 's-search-result'})
+    return soup_format
+
+
+def get_one_page(search_url):
+    soup_format = get_soup_format_obj(search_url)
+    search_results = soup_format.find_all('div', {'class': 's-result-item', 'data-component-type' : 's-search-result'})
     return search_results
+
+
+def get_last_page(key_words):
+    target_url = get_target_url(1, key_words)
+    soup_format = get_soup_format_obj(target_url)
+    try:
+        last_page = soup_format.find('span', attrs ={'class': 's-pagination-item s-pagination-disabled'}).text
+    except AttributeError:
+        print('fail finding last page')
+    if(utility_funcs.string_is_integer(last_page)) is True:
+        return int(last_page)
+    #there are less than 4 results pages
+    return 3
 
 
 def get_product_title(item):
@@ -53,9 +71,6 @@ def get_num_of_rating(item):
         print('No ratings')
     except IndexError:
         print('No ratings')
-    if(utility_funcs.string_is_integer(num_ratings) is False):
-        return None
-    return int()
 
 
 def get_product_price(item):
@@ -86,8 +101,6 @@ def get_data_from_results(search_results):
         get_product_ratings(item)
         get_num_of_rating(item)
         get_product_price(item)
-        next_line='\n'
-        print(next_line)
 
 
 
