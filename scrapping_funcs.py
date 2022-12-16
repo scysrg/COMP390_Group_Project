@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from utility_funcs import format_rating
+import utility_funcs
 
 HEADER_FOR_GET_REAUEST = (
     {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
@@ -35,7 +36,15 @@ def get_product_ratings(item):
         first_product_rating = item.find('i', {'class': 'a-icon'})
         first_product_rating = format_rating(first_product_rating.text)
         print(first_product_rating)
-        #aria label has value
+    except AttributeError:
+        print('No ratings')
+    except IndexError:
+        print('No ratings')
+
+
+def get_num_of_rating(item):
+    try:
+        # aria label has value
         rating_blocks = item.find_all('span', {'aria-label': True})
         # rating_blocks[1] returns delivery date sometimes >> check if its returning None or not int/double value
         num_ratings = rating_blocks[1].text.replace(",","").replace("(", "").replace(")", "")
@@ -44,6 +53,9 @@ def get_product_ratings(item):
         print('No ratings')
     except IndexError:
         print('No ratings')
+    if(utility_funcs.string_is_integer(num_ratings) is False):
+        return None
+    return int()
 
 
 def get_product_price(item):
@@ -72,6 +84,7 @@ def get_data_from_results(search_results):
         get_product_title(item)
         get_url_string(item)
         get_product_ratings(item)
+        get_num_of_rating(item)
         get_product_price(item)
         next_line='\n'
         print(next_line)
