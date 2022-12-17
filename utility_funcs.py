@@ -25,3 +25,12 @@ def string_is_integer(in_string):
         return False
 
 
+def write(line: str, product: str):
+    file = open(f'{product}_results.txt', 'a')
+    file.write(line)
+    file.close()
+
+
+def clear(product: str):
+    file = open(f'{product}_results.txt', 'w')
+    file.close()
