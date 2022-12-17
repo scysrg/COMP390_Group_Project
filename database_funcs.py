@@ -60,23 +60,21 @@ def create_amazon_database():
             db_connection.close()
 
 
-def fetch_data(product_table, rating_query: tuple, num_ratings_query: tuple, price_query: tuple):
+def fetch_data(**query):
     """
     Fetches all the data queried by the user
-    :param product_table: the product keyword, title of the table, type of product
-    :param rating_query: tuple containing (float rating, string relation), ex. (4.3, '<=')
-    :param num_ratings_query: tuple containing (float num_ratings, string relation)
-    :param price_query: tuple containing (float price, string relation)
-    :return: data: list fetched from database matching the query
-    :raises: db_error: catch for potential database errors
+    :param query: product, rating (tuple), num_ratings (tuple), price (tuple): user input query
+        Tuples should be in the form (relation, value).
+    :return data: list fetched from database matching the query
+    :raises db_error: catch for potential database errors
     """
     try:
         db_connection = sqlite3.connect(db_name)
         db_cursor = db_connection.cursor()
-        db_cursor.execute(f'''SELECT * FROM {product_table} WHERE 
-                            rating {rating_query[1]} {rating_query[0]} AND
-                            num_ratings {num_ratings_query[1]} {num_ratings_query[0]} AND
-                            price {price_query[1]} {price_query[0]}''')
+        db_cursor.execute(f'''SELECT * FROM {query['product']} WHERE 
+                            rating {query['rating'][0]} {query['rating'][1]} AND
+                            num_ratings {query['num_ratings'][0]} {query['num_ratings'][1]} AND
+                            price {query['price'][0]} {query['price'][1]}''')
         return db_cursor.fetchall()
     except sqlite3.Error as db_error:
         print(f'(fetch_data) A database error has occurred: {db_error}')

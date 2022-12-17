@@ -101,6 +101,3 @@ def get_data_from_results(search_results):
         get_product_ratings(item)
         get_num_of_rating(item)
         get_product_price(item)
-
-
-

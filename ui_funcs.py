@@ -27,40 +27,59 @@ def do_everything():
     Don't mind this, I promise it won't be this long or do_everything forever. This is the main track for the UI
     functionality
     """
-    print(keyword_prompt)
-    while 1:
-        keyword_input = input('>>')
-        try:  # Error Case: unacceptable input
-            product_query = keyword_dict[keyword_input]
-        except KeyError:
-            print("Please enter a valid query as a number between 1 and 6", end='')
-            continue  # Call prompt again
-        break
-    print(f'Searching for {product_query}...')
-    rating_query = prompt('star rating', 0.0, 5.0)
-    num_ratings_query = prompt('number of ratings', 0.0, 0xffffffff)
-    price_query = prompt('price', 0.0, 0xffffffff)
+    query = get_user_query()
+    data = db.fetch_data(product=query[0], rating=query[1], num_rating=query[2], price=query[3])
+    print_query_results(data, product=query[0], rating=query[1], num_ratings=query[2], price=query[3])
 
-    data: list = db.fetch_data(product_query, rating_query, num_ratings_query, price_query)
-    search_query_str = f"Found {len(data)} {product_query}'s with {rating_query}, {num_ratings_query}, {price_query}\n"
+
+def print_query_results(data: list, **query):
+    """
+    Takes the search results and prints them to terminal and writes it to a new file
+    :param data: list of data fetched from user query
+    :param query: product, rating, num_ratings, and price: tuples gathered from user input
+    """
+    search_query_str = f"Found {len(data)} {query['product']}'s with rating {query['rating']}, " \
+                       f"number of ratings {query['num_ratings']}, and price {query['price']}\n"
+    search_query_str.strip('()')
     print(search_query_str)
-    util.clear(product_query)
-    util.write(search_query_str, product_query)
+    util.clear(query['product'])
+    util.write(search_query_str, query['product'])
     for entry in data:
         entry = process_entry(entry)
         print(entry)
-        util.write(entry, product_query)
+        util.write(entry, query['product'])
 
 
-def prompt(prompt_type: str, min_range, max_range):
+def get_user_query():
+    """
+    Handles prompting the user for the search query
+    :return product_query, rating_query, num_ratings_query, price_query: returns all the user input asked
+    """
+    print(keyword_prompt)
+    product_query = prompt_product()
+    print(f'Searching for {product_query}...')
+    rating_query = prompt_query('star rating', 0.0, 5.0)
+    num_ratings_query = prompt_query('number of ratings', 0.0, 0xffffffff)
+    price_query = prompt_query('price', 0.0, 0xffffffff)
+    return product_query, rating_query, num_ratings_query, price_query
+
+
+def prompt_query(prompt_type: str, min_range, max_range):
+    """
+    Prompts user for individual values, accepting only float inputs valid by ranges
+    :param prompt_type: type of prompt to be asked
+    :param min_range: minimum bound for input
+    :param max_range: maximum bound for input
+    :return target_prompt_relation, target_prompt_value: A tuple consisting of the inequality operator and value queried
+    """
     print(f'Target {prompt_type}? Hit Enter/Return for all', end='')
     while 1:  # Prompts user for the target value
-        target_prompt_type = input(': ')
-        if target_prompt_type == '':  # Case: User wants all in prompt_type
-            return 0.0, '>='
+        target_prompt_value = input(': ')
+        if target_prompt_value == '':  # Case: User wants all in prompt_type
+            return '>=', 0.0
         try:  # Error Case: unacceptable input
-            target_prompt_type = float(target_prompt_type)
-            check_range(target_prompt_type, min_range, max_range)
+            target_prompt_value = float(target_prompt_value)
+            check_range(target_prompt_value, min_range, max_range)
         except (TypeError, ValueError):
             print(f'Please enter a valid value between {min_range}, {max_range}', end='')
             continue
@@ -70,11 +89,33 @@ def prompt(prompt_type: str, min_range, max_range):
     while 1:  # Prompts user for the (in)equality statement
         target_prompt_relation = input(': ')
         if target_prompt_relation in relations_list:
-            return target_prompt_type, target_prompt_relation
+            return target_prompt_relation, target_prompt_relation
         print('Please enter a valid relation from the list', end='')
 
 
+def prompt_product():
+    """
+    Prompts the user for the product to search for
+    :return product_query: valid user input for searching
+    """
+    while 1:
+        keyword_input = input('>>')
+        try:  # Error Case: unacceptable input
+            product_query = keyword_dict[keyword_input]
+        except KeyError:
+            print("Please enter a valid query as a number between 1 and 6", end='')
+            continue  # Call prompt again
+        return product_query
+
+
 def check_range(val, min_range, max_range):
+    """
+    Checks float inputs against an acceptable range
+    :param val: value in question, to be compared
+    :param min_range: minimum bound of range
+    :param max_range: maximum bound of range
+    :raises ValueError: if val falls out of the bounds defined by min_range, max_range
+    """
     if val < min_range:
         raise ValueError
     elif val > max_range:
@@ -82,6 +123,11 @@ def check_range(val, min_range, max_range):
 
 
 def process_entry(entry: list):
+    """
+    Converts a db entry into a readable string format
+    :param entry: list in the form fetched from the database
+    :return: a str easily readable by the user
+    """
     return f'{entry[0]}\n' \
            f'Avg. Rating: {entry[1]}*, Num. Ratings: {entry[2]}.' \
            f'${entry[3]}' \
