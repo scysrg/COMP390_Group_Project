@@ -20,7 +20,7 @@ def _convert_to_float(data_string):
         return None
 
 def populate_row(table_key, product_name, rating, num_ratings, price, product_url):
-    '''Inserts the date into the correct database'''
+    '''Inserts date into the correct table'''
     try:
         db_connection = sqlite3.connect(db_name)
         db_cursor = db_connection.cursor()
