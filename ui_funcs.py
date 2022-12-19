@@ -77,20 +77,15 @@ def prompt_query(prompt_type: str, min_range, max_range):
         target_prompt_value = input(': ')
         if target_prompt_value == '':  # Case: User wants all in prompt_type
             return '>=', 0.0
-        try:  # Error Case: unacceptable input
-            target_prompt_value = float(target_prompt_value)
-            check_range(target_prompt_value, min_range, max_range)
-        except (TypeError, ValueError):
-            print(f'Please enter a valid value between {min_range}, {max_range}', end='')
-            continue
+        if not check_input(target_prompt_value, min_range, max_range):
+            print(f'Please enter a valid value between {min_range}, {max_range}', end=''); continue
         break
-
     print(f'Choose relation operator for target from {relations_list}', end='')
     while 1:  # Prompts user for the (in)equality statement
         target_prompt_relation = input(': ')
-        if target_prompt_relation in relations_list:
-            return target_prompt_relation, target_prompt_relation
-        print('Please enter a valid relation from the list', end='')
+        if target_prompt_relation not in relations_list:
+            print('Please enter a valid relation from the list', end='')
+        return target_prompt_relation, target_prompt_relation
 
 
 def prompt_product():
@@ -108,20 +103,6 @@ def prompt_product():
         return product_query
 
 
-def check_range(val, min_range, max_range):
-    """
-    Checks float inputs against an acceptable range
-    :param val: value in question, to be compared
-    :param min_range: minimum bound of range
-    :param max_range: maximum bound of range
-    :raises ValueError: if val falls out of the bounds defined by min_range, max_range
-    """
-    if val < min_range:
-        raise ValueError
-    elif val > max_range:
-        raise ValueError
-
-
 def process_entry(entry: list):
     """
     Converts a db entry into a readable string format
@@ -132,6 +113,19 @@ def process_entry(entry: list):
            f'Avg. Rating: {entry[1]}*, Num. Ratings: {entry[2]}.' \
            f'${entry[3]}' \
            f'{entry[4]}'
+
+
+def check_input(user_input, min_range, max_range):
+    """
+    Checks the validity of numerical user input against ranges
+    :param user_input: numerical input from user
+    :param min_range: minimum bound for user_input
+    :param max_range: maximum bound for user_input
+    :return bool: True if user_input is float and between range values, False otherwise
+    """
+    if util.string_is_float(user_input):
+        return min_range <= user_input <= max_range
+    return False
 
 
 if __name__ == '__main__':
