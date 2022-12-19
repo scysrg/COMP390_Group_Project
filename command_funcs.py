@@ -33,8 +33,10 @@ def enter_database_data():
     key_tracker = 0
     # gather and add data into DB with a LIMIT of 300 listings
     for key_words in key_words_list:
+        print('\x08===', end=' ')
         # while TOTAL listings in UNDER 300
         while listing_counter < listing_limit:
+            ui.loading()
             listing_counter = int(_scrape_data(key_words, page_number, database_key_array[key_tracker], listing_counter, listing_limit))
             page_number += 1
         key_tracker += 1

@@ -27,8 +27,8 @@ def print_query_results(data: list, **query):
     :param data: list of data fetched from user query
     :param query: product, rating, num_ratings, and price: tuples gathered from user input
     """
-    search_query_str = f"Found {len(data)} {query['product']}'s with rating {query['rating']}, " \
-                       f"number of ratings {query['num_ratings']}, and price {query['price']}\n"
+    search_query_str = f"Found {len(data)} {query['product']} with rating {query['rating']}; " \
+                       f"number of ratings {query['num_ratings']}; and price {query['price']}\n"
     search_query_str = util.clean(search_query_str)
     print(search_query_str)
     util.clear(query['product'])
@@ -119,6 +119,10 @@ def check_input(user_input, min_range, max_range):
 
 
 def cont():
+    """
+    cont, short for continue, asks the user if they would like to continue searching for products
+    :return bool: True if they would like to continue, False otherwise
+    """
     print('Would you like to search again? y/n', end='')
     while 1:
         cont_input = input(': ')
@@ -127,3 +131,17 @@ def cont():
         if cont_input.startswith('n'):
             return False
         print('y or n, please! y for yes, n for no', end='')
+
+
+load_index = 0
+load_arr = ['|', '/', '-', '\\']
+
+
+def loading():
+    """
+    Prints a silly little loading icon so the user doesn't worry that something is broken
+    """
+    global load_index
+    print(f'\x08{load_arr[load_index]}', end='')
+    load_index += 1
+    load_index = load_index % 4
