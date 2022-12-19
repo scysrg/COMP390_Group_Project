@@ -5,6 +5,7 @@ key_words_list= ['Over Ear Headphones', 'USB Microphones', '1080p Webcams', 'Cap
 db_name = 'amazon_listings.db'
 database_key_array = ['over_ear_headphones', 'usb_microphones', 'webcams_1080p', 'capture_cards', 'audio_mixers_8channel', 'gaming_laptops']
 
+
 def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listings):
     search_url = scrapping_funcs.get_target_url(pg_num, key_words)
     search_results = scrapping_funcs.get_one_page(search_url)
@@ -21,6 +22,8 @@ def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listin
         db_data_entry[4] = scrapping_funcs.get_url_string(item)
         populate_row(table_listing, db_data_entry[0], db_data_entry[1], db_data_entry[2], db_data_entry[3], db_data_entry[4])
     return listing_counter
+
+
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     create_amazon_database()
