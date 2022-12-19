@@ -1,3 +1,5 @@
+"""This module contains functions that scrape product data from Amazon's product listing pages"""
+
 import requests
 from bs4 import BeautifulSoup
 from utility_funcs import format_rating
@@ -9,6 +11,7 @@ HEADER_FOR_GET_REQUEST = (
 )
 
 def get_target_url(page: int, keywords: str):
+    """This function gets the number of pages from incoming """
     base_url = 'https://www.amazon.com/s?k='
     search_keywords_formatted = keywords.replace(' ', '+')
     # specify the results >> results in page1
@@ -18,16 +21,19 @@ def get_target_url(page: int, keywords: str):
 
 
 def get_soup_format_obj(target_url):
+    """This function returns searching results in a soup format objects from incoming url"""
     response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REQUEST)
     soup_format = BeautifulSoup(response_obj.content, 'html.parser')
     return soup_format
 
 def get_one_page(search_url):
+    """This function returns gathers only the search results we are looking for: <div> tags, inside <div> tags look for 's-result-item', 's-search-result'"""
     soup_format = get_soup_format_obj(search_url)
-    search_results = soup_format.find_all('div', {'class': 's-result-item', 'data-component-type' : 's-search-result'})
+    search_results = soup_format.find_all('div', {'class': 's-result-item', 'data-component-type': 's-search-result'})
     return search_results
 
 def get_last_page(key_words):
+    """This function returns the number of pages of results from incoming keyword."""
     target_url = get_target_url(1, key_words)
     soup_format = get_soup_format_obj(target_url)
     try:
@@ -40,10 +46,13 @@ def get_last_page(key_words):
     return 3
 
 def get_product_title(item):
+    """This functions returns product title of incoming item in a string type"""
     first_product_title = item.h2.text
     return first_product_title
 
 def get_product_ratings(item):
+    """This functions returns product rating of incoming item in a string type.
+    returns None if the product has no ratings"""
     try:
         # get the rating of first product
         first_product_rating = item.find('i', {'class': 'a-icon'})
@@ -55,10 +64,12 @@ def get_product_ratings(item):
         return None
 
 def get_num_of_rating(item):
+    """This functions returns the number of product rating of incoming item in a string type.
+    returns None if the product has no ratings"""
     try:
-        # aria label has value
+        # if aria label has value
         rating_blocks = item.find_all('span', {'aria-label': True})
-        # rating_blocks[1] returns delivery date sometimes >> check if its returning None or not int/double value
+        # remove unnecessary characters(comma, round brackets)
         num_ratings = rating_blocks[1].text.replace(",","").replace("(", "").replace(")", "")
         return num_ratings
     except AttributeError:
@@ -86,6 +97,7 @@ def get_url_string(item):
         return None
 
 def get_data_from_results(search_results):
+    """This functions prints results of scrapping. (Just for testing) """
     for item in search_results:
         print(get_product_title(item))
         print(get_url_string(item))
