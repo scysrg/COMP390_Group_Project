@@ -11,13 +11,13 @@ def _convert_to_int(data_string):
     try:
         return int(data_string)
     except:
-        return None
+        return 0
 def _convert_to_float(data_string):
     """Converts a given string into a float for the database, if error returns null"""
     try:
         return float(data_string)
     except:
-        return None
+        return 0
 
 def populate_row(table_key, product_name, rating, num_ratings, price, product_url):
     """Inserts date into the correct table"""
