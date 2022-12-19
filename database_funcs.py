@@ -1,5 +1,6 @@
-'''Database class with functions that create and populate the database'''
+"""Database class with functions that create and populate the database"""
 import sqlite3
+import utility_funcs as util
 
 # Database Name
 db_name = 'amazon_listings.db'
@@ -7,20 +8,20 @@ db_name = 'amazon_listings.db'
 listings_array = ['over_ear_headphones', 'usb_microphones', 'webcams_1080p', 'capture_cards', 'audio_mixers_8channel', 'gaming_laptops']
 
 def _convert_to_int(data_string):
-    '''Converts a given string into an integer for the database, if error returns null'''
+    """Converts a given string into an integer for the database, if error returns null"""
     try:
         return int(data_string)
     except:
-        return None
+        return 0
 def _convert_to_float(data_string):
-    '''Converts a given string into a float for the database, if error returns null'''
+    """Converts a given string into a float for the database, if error returns null"""
     try:
         return float(data_string)
     except:
-        return None
+        return 0
 
 def populate_row(table_key, product_name, rating, num_ratings, price, product_url):
-    '''Inserts date into the correct table'''
+    """Inserts date into the correct table"""
     try:
         db_connection = sqlite3.connect(db_name)
         db_cursor = db_connection.cursor()
@@ -34,18 +35,21 @@ def populate_row(table_key, product_name, rating, num_ratings, price, product_ur
                 db_connection.close()
 
 def _create_tables(db_cursor):
-    '''Adds the tables to the database'''
-    for key in listings_array:
-                db_cursor.execute(f'''CREATE TABLE IF NOT EXISTS {key}(
-                                    product_name TEXT,
-                                    rating REAL,
-                                    num_ratings INTEGER,
-                                    price REAL,
-                                    product_url TEXT);''')
-                db_cursor.execute(f'''DELETE FROM {key}''')
+    """Adds the tables to the database"""
+    try:
+        for key in listings_array:
+                    db_cursor.execute(f'''CREATE TABLE IF NOT EXISTS {key}(
+                                        product_name TEXT,
+                                        rating REAL,
+                                        num_ratings INTEGER,
+                                        price REAL,
+                                        product_url TEXT);''')
+                    db_cursor.execute(f'''DELETE FROM {key}''')
+    except sqlite3.Error as db_error:
+        print(f'(_create_tables) A database error has occurred: {db_error}')
 
 def create_amazon_database():
-    '''Creates the database'''
+    """Creates the database"""
     try:
         db_connection = sqlite3.connect(db_name)
         db_cursor = db_connection.cursor()
@@ -69,10 +73,13 @@ def fetch_data(**query):
     try:
         db_connection = sqlite3.connect(db_name)
         db_cursor = db_connection.cursor()
-        db_cursor.execute(f'''SELECT * FROM {query['product']} WHERE 
+        execute_str = f'''SELECT * FROM {query['product']} WHERE 
                             rating {query['rating'][0]} {query['rating'][1]} AND
                             num_ratings {query['num_ratings'][0]} {query['num_ratings'][1]} AND
-                            price {query['price'][0]} {query['price'][1]}''')
+                            price {query['price'][0]} {query['price'][1]}'''
+        execute_str = util.clean(execute_str)
+        print(execute_str)
+        db_cursor.execute(execute_str)
         return db_cursor.fetchall()
     except sqlite3.Error as db_error:
         print(f'(fetch_data) A database error has occurred: {db_error}')
