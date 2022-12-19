@@ -1,7 +1,6 @@
 """
 ui_funcs handles terminal printing, user input, and all things interface.
 """
-import database_funcs as db
 import utility_funcs as util
 
 keyword_prompt = "Choose an electronic you wish to search for\n" \
@@ -19,17 +18,7 @@ keyword_dict = {'1': 'over_ear_headphones',
                 '5': 'audio_mixers_8channel',
                 '6': 'gaming_laptops'}
 
-relations_list = ['<', '>', '<=', '>=', '=']
-
-
-def do_everything():
-    """
-    Don't mind this, I promise it won't be this long or do_everything forever. This is the main track for the UI
-    functionality
-    """
-    query = get_user_query()
-    data = db.fetch_data(product=query[0], rating=query[1], num_rating=query[2], price=query[3])
-    print_query_results(data, product=query[0], rating=query[1], num_ratings=query[2], price=query[3])
+relations_list = ['<', '>', '<=', '>=', '==']
 
 
 def print_query_results(data: list, **query):
@@ -40,7 +29,7 @@ def print_query_results(data: list, **query):
     """
     search_query_str = f"Found {len(data)} {query['product']}'s with rating {query['rating']}, " \
                        f"number of ratings {query['num_ratings']}, and price {query['price']}\n"
-    search_query_str.strip('()')
+    search_query_str = util.clean(search_query_str)
     print(search_query_str)
     util.clear(query['product'])
     util.write(search_query_str, query['product'])
@@ -84,8 +73,8 @@ def prompt_query(prompt_type: str, min_range, max_range):
     while 1:  # Prompts user for the (in)equality statement
         target_prompt_relation = input(': ')
         if target_prompt_relation not in relations_list:
-            print('Please enter a valid relation from the list', end='')
-        return target_prompt_relation, target_prompt_relation
+            print('Please enter a valid relation from the list', end=''); continue
+        return target_prompt_relation, target_prompt_value
 
 
 def prompt_product():
@@ -110,9 +99,9 @@ def process_entry(entry: list):
     :return: a str easily readable by the user
     """
     return f'{entry[0]}\n' \
-           f'Avg. Rating: {entry[1]}*, Num. Ratings: {entry[2]}.' \
-           f'${entry[3]}' \
-           f'{entry[4]}'
+           f'Avg. Rating: {entry[1]}*, Num. Ratings: {entry[2]}. ' \
+           f'${entry[3]}\n' \
+           f'{entry[4]}\n'
 
 
 def check_input(user_input, min_range, max_range):
@@ -124,9 +113,17 @@ def check_input(user_input, min_range, max_range):
     :return bool: True if user_input is float and between range values, False otherwise
     """
     if util.string_is_float(user_input):
+        user_input = float(user_input)
         return min_range <= user_input <= max_range
     return False
 
 
-if __name__ == '__main__':
-    do_everything()
+def cont():
+    print('Would you like to search again? y/n', end='')
+    while 1:
+        cont_input = input(': ')
+        if cont_input.startswith('y'):
+            return True
+        if cont_input.startswith('n'):
+            return False
+        print('y or n, please! y for yes, n for no', end='')
