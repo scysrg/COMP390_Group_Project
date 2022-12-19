@@ -26,11 +26,19 @@ def string_is_integer(in_string):
 
 
 def write(line: str, product: str):
-    file = open(f'{product}_results.txt', 'a')
+    file = open(f'{product}_results.txt', 'a', encoding='UTF=8')
     file.write(line)
+    file.write('\n')
     file.close()
 
 
 def clear(product: str):
     file = open(f'{product}_results.txt', 'w')
     file.close()
+
+
+def clean(string: str):
+    string = string.replace('(', '')
+    string = string.replace(')', '')
+    string = string.replace('\'', '')
+    return string
