@@ -11,6 +11,8 @@ HEADER_FOR_GET_REQUEST = (
 
 def get_target_url(page: int, keywords: str):
     """This function constructs the URL by incorporating the search keywords and page number and returns it."""
+    if keywords == '':
+        return 'https://www.amazon.com'
     base_url = 'https://www.amazon.com/s?k='
     # replace spaces in keywords with '+'
     search_keywords_formatted = keywords.replace(' ', '+')
@@ -25,8 +27,6 @@ def get_soup_format_obj(target_url):
     """This function returns searching results in a soup format objects from incoming url
     returns None if the get request doesn't work"""
     response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REQUEST)
-
-    print(f"Status: {response_obj.reason}")
     # response.reason returns 'OK' when the get requests is successful
     if response_obj.reason == 'OK':
         # parse the HTML text using Beautifulsoup.
