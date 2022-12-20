@@ -28,16 +28,16 @@ def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listin
 
 def _get_url_status(pg_num, key_words):
     """Checks current status of a URL"""
-    search_url = scrapping_funcs.get_target_url(pg_num, key_words)
-    response = requests.get(search_url, headers=scrapping_funcs.HEADER_FOR_GET_REQUEST)
+    search_url = scraping_funcs.get_target_url(pg_num, key_words)
+    response = requests.get(search_url, headers=scraping_funcs.HEADER_FOR_GET_REQUEST)
     print(f"\nConnection Status [{response.status_code}]: {response.reason}")
-
 
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     print('Creatine database...')
     db.create_amazon_database()
     listing_counter = 0
+    listing_limit = 300
     page_number = 1
     key_tracker = 0
     # gather and add data into DB with a LIMIT of 300 listings

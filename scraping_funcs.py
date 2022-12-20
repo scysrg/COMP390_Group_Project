@@ -25,8 +25,6 @@ def get_soup_format_obj(target_url):
     """This function returns searching results in a soup format objects from incoming url
     returns None if the get request doesn't work"""
     response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REQUEST)
-
-    print(f"Status: {response_obj.reason}")
     # response.reason returns 'OK' when the get requests is successful
     if response_obj.reason == 'OK':
         # parse the HTML text using Beautifulsoup.
