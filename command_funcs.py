@@ -1,3 +1,5 @@
+import requests
+
 import database_funcs as db
 import scrapping_funcs
 import ui_funcs as ui
@@ -24,17 +26,24 @@ def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listin
         db.populate_row(table_listing, db_data_entry[0], db_data_entry[1], db_data_entry[2], db_data_entry[3], db_data_entry[4])
     return listing_counter
 
+def _get_url_status(pg_num, key_words):
+    """Checks current status of a URL"""
+    search_url = scrapping_funcs.get_target_url(pg_num, key_words)
+    response = requests.get(search_url, headers=scrapping_funcs.HEADER_FOR_GET_REQUEST)
+    print(f"\nConnection Status [{response.status_code}]: {response.reason}")
+
+# Static global value
+listing_limit = 300
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     print('Creatine database...')
     db.create_amazon_database()
     listing_counter = 0
-    listing_limit = 300
     page_number = 1
     key_tracker = 0
     # gather and add data into DB with a LIMIT of 300 listings
-    print('Populating database...')
     for key_words in key_words_list:
+        _get_url_status(page_number, key_words);
         print('\x08===', end=' ')
         # while TOTAL listings in UNDER 300
         while listing_counter < listing_limit:
@@ -45,7 +54,6 @@ def enter_database_data():
         # reset the number of listings for the next search result
         listing_counter = 0
         page_number = 0
-    print('Database created.')
 
 def handle_query():
     """

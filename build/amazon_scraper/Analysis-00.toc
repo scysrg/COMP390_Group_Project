@@ -284,21 +284,6 @@
   ('ast',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\ast.py',
    'PYMODULE'),
-  ('_py_abc',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\_py_abc.py',
-   'PYMODULE'),
-  ('stringprep',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\stringprep.py',
-   'PYMODULE'),
-  ('subprocess',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\subprocess.py',
-   'PYMODULE'),
-  ('signal',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\signal.py',
-   'PYMODULE'),
-  ('tracemalloc',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\tracemalloc.py',
-   'PYMODULE'),
   ('getpass',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\getpass.py',
    'PYMODULE'),
@@ -328,6 +313,21 @@
    'PYMODULE'),
   ('http.client',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\http\\client.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('stringprep',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\subprocess.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\signal.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\_py_abc.py',
    'PYMODULE'),
   ('command_funcs',
    'C:\\Users\\teana\\Desktop\\Homework\\Comp '
@@ -468,6 +468,19 @@
    'PYMODULE'),
   ('_markupbase',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\_markupbase.py',
+   'PYMODULE'),
+  ('database_funcs',
+   'C:\\Users\\teana\\Desktop\\Homework\\Comp '
+   'Sci\\390\\COMP390_Group_Project\\database_funcs.py',
+   'PYMODULE'),
+  ('sqlite3',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\__init__.py',
+   'PYMODULE'),
+  ('sqlite3.dump',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\dump.py',
+   'PYMODULE'),
+  ('sqlite3.dbapi2',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\dbapi2.py',
    'PYMODULE'),
   ('requests',
    'C:\\Users\\teana\\Desktop\\Homework\\Comp '
@@ -714,21 +727,26 @@
   ('urllib3',
    'C:\\Users\\teana\\Desktop\\Homework\\Comp '
    'Sci\\390\\COMP390_Group_Project\\venv\\lib\\site-packages\\urllib3\\__init__.py',
-   'PYMODULE'),
-  ('database_funcs',
-   'C:\\Users\\teana\\Desktop\\Homework\\Comp '
-   'Sci\\390\\COMP390_Group_Project\\database_funcs.py',
-   'PYMODULE'),
-  ('sqlite3',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\__init__.py',
-   'PYMODULE'),
-  ('sqlite3.dump',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\dump.py',
-   'PYMODULE'),
-  ('sqlite3.dbapi2',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\lib\\sqlite3\\dbapi2.py',
    'PYMODULE')],
- [('api-ms-win-crt-locale-l1-1-0.dll',
+ [('python310.dll',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\python310.dll',
+   'BINARY'),
+  ('api-ms-win-crt-math-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-stdio-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-runtime-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
+   'BINARY'),
+  ('VCRUNTIME140.dll',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('api-ms-win-crt-locale-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-locale-l1-1-0.dll',
    'BINARY'),
@@ -736,46 +754,25 @@
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-heap-l1-1-0.dll',
    'BINARY'),
-  ('VCRUNTIME140.dll',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\VCRUNTIME140.dll',
-   'BINARY'),
-  ('api-ms-win-crt-runtime-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
-   'BINARY'),
-  ('python310.dll',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\python310.dll',
-   'BINARY'),
-  ('api-ms-win-crt-stdio-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-math-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
-   'BINARY'),
-  ('ucrtbase.dll',
-   'C:\\Program Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\ucrtbase.dll',
-   'BINARY'),
   ('api-ms-win-crt-string-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-convert-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-process-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-filesystem-l1-1-0.dll',
+  ('api-ms-win-crt-convert-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-environment-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-environment-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-filesystem-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-time-l1-1-0.dll',
    'C:\\Program '
@@ -785,105 +782,108 @@
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-timezone-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-localization-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-interlocked-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-synch-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-synch-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-profile-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
+  ('ucrtbase.dll',
+   'C:\\Program Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\ucrtbase.dll',
    'BINARY'),
   ('api-ms-win-core-sysinfo-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-synch-l1-1-0.dll',
+  ('api-ms-win-core-processthreads-l1-1-1.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-util-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-string-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l2-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-namedpipe-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-handle-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
    'BINARY'),
   ('api-ms-win-core-libraryloader-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
    'BINARY'),
+  ('api-ms-win-core-handle-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-timezone-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-synch-l1-2-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-synch-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-namedpipe-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
+   'BINARY'),
   ('api-ms-win-core-errorhandling-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-errorhandling-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-1.dll',
+  ('api-ms-win-core-localization-l1-2-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
    'BINARY'),
-  ('api-ms-win-core-memory-l1-1-0.dll',
+  ('api-ms-win-core-debug-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-console-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-0.dll',
+  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-processenvironment-l1-1-0.dll',
+  ('api-ms-win-core-file-l2-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-heap-l1-1-0.dll',
+  ('api-ms-win-core-interlocked-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-memory-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-datetime-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-debug-l1-1-0.dll',
+  ('api-ms-win-core-util-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l1-2-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-string-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-string-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-synch-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processthreads-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-profile-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processenvironment-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-heap-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-11.0.12.7-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
    'BINARY'),
   ('_decimal.pyd',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_decimal.pyd',
@@ -909,11 +909,11 @@
   ('_ssl.pyd',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_ssl.pyd',
    'EXTENSION'),
-  ('_queue.pyd',
-   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_queue.pyd',
-   'EXTENSION'),
   ('_sqlite3.pyd',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_sqlite3.pyd',
+   'EXTENSION'),
+  ('_queue.pyd',
+   'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_queue.pyd',
    'EXTENSION'),
   ('libcrypto-1_1.dll',
    'C:\\Users\\teana\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\libcrypto-1_1.dll',
@@ -934,12 +934,12 @@
    'C:\\Users\\teana\\Desktop\\Homework\\Comp '
    'Sci\\390\\COMP390_Group_Project\\build\\amazon_scraper\\base_library.zip',
    'DATA'),
-  ('certifi\\cacert.pem',
-   'C:\\Users\\teana\\Desktop\\Homework\\Comp '
-   'Sci\\390\\COMP390_Group_Project\\venv\\lib\\site-packages\\certifi\\cacert.pem',
-   'DATA'),
   ('certifi\\py.typed',
    'C:\\Users\\teana\\Desktop\\Homework\\Comp '
    'Sci\\390\\COMP390_Group_Project\\venv\\lib\\site-packages\\certifi\\py.typed',
+   'DATA'),
+  ('certifi\\cacert.pem',
+   'C:\\Users\\teana\\Desktop\\Homework\\Comp '
+   'Sci\\390\\COMP390_Group_Project\\venv\\lib\\site-packages\\certifi\\cacert.pem',
    'DATA')],
  [])

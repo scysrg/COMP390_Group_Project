@@ -28,7 +28,7 @@ def populate_row(table_key, product_name, rating, num_ratings, price, product_ur
         db_cursor.execute(f'''INSERT INTO {table_key} VALUES(?, ?, ?, ?, ?)''', (product_name, _convert_to_float(rating), _convert_to_int(num_ratings), _convert_to_float(price), product_url))
         db_connection.commit()
     except sqlite3.Error as db_error:
-            print(f' (populate_database) A database error has occurred: {db_error}')
+            print(f'(populate_database) A database error has occurred: {db_error}')
     finally:
             # if a conenction exists, close the connection
             if db_connection:

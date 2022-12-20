@@ -7,7 +7,7 @@ Section: COMP390-001
 
 GitHub Repository: https://github.com/scysrg/COMP390_Group_Project
 
-Third-Party Libraries: requests, bs4, sqlite3
+Third-Party Libraries: requests, bs4, sqlite3, pytest, pyinstaller
 
 Description: The purpose of this program is to gather data from Amazon's website
 before allowing the user to search this information for products with specific ratings and prices.
