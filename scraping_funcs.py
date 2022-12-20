@@ -26,7 +26,7 @@ def get_soup_format_obj(target_url):
     returns None if the get request doesn't work"""
     response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REQUEST)
     print(f"Status: {response_obj.reason}")
-    # response.reaseon returns 'OK" when the get requests is successful
+    # response.reason returns 'OK' when the get requests is successful
     if response_obj.reason == 'OK':
         # parse the HTML text using Beautifulsoup.
         soup_format = BeautifulSoup(response_obj.content, 'html.parser')
@@ -52,7 +52,7 @@ def get_last_page(key_words):
         print('fail finding last page')
     if(utility_funcs.string_is_integer(last_page)) is True:
         return int(last_page)
-    #there are less than 4 results pages
+    # there are less than 4 results pages
     return 3
 
 
