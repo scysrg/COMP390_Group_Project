@@ -1,10 +1,7 @@
 """This tests the functions of all core classes"""
 import pytest
-<<<<<<< HEAD
-
 import scraping_funcs
-=======
->>>>>>> 5836e43eb4d9d3cbc49f24b76b18485ba3f00c72
+
 from database_funcs import *
 from ui_funcs import *
 from io import StringIO
@@ -109,13 +106,12 @@ def test_prompt_product(capfd, monkeypatch):
     assert prompt_product() == 'over_ear_headphones'
 
 
-<<<<<<< HEAD
-
 def test_get_target_url():
     assert scraping_funcs.get_target_url(3,'test function') == 'https://www.amazon.com/s?k=test+function&page=3'
     assert scraping_funcs.get_target_url(2,'') == 'https://www.amazon.com'
     # this link will rediret you to amazon main page
-    assert scraping_funcs.get_target_url(2,' ') == 'https://www.amazon.com/s?k=+&page=2'
-=======
->>>>>>> 5836e43eb4d9d3cbc49f24b76b18485ba3f00c72
+    assert scraping_funcs.get_target_url(2,' ') == 'https://www.amazon.com'
+    assert scraping_funcs.get_target_url(5,'\n') == 'https://www.amazon.com'
+    assert scraping_funcs.get_target_url(5,'\t') == 'https://www.amazon.com'
+
 
