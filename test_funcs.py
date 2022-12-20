@@ -1,6 +1,5 @@
 """This tests the functions of all core classes"""
 import pytest
-
 import command_funcs as commands
 import scraping_funcs
 from database_funcs import *
@@ -109,8 +108,16 @@ def test_prompt_product(capfd, monkeypatch):
     monkeypatch.setattr('sys.stdin', sim_input)
     assert prompt_product() == 'over_ear_headphones'
 
+
 def test_get_target_url():
     assert scraping_funcs.get_target_url(3,'test function') == 'https://www.amazon.com/s?k=test+function&page=3'
     assert scraping_funcs.get_target_url(2,'') == 'https://www.amazon.com'
     # this link will rediret you to amazon main page
     assert scraping_funcs.get_target_url(2,' ') == 'https://www.amazon.com/s?k=+&page=2'
+
+def test_get_target_url():
+    assert scraping_funcs.get_target_url(3,'test function') == 'https://www.amazon.com/s?k=test+function&page=3'
+    assert scraping_funcs.get_target_url(2,'') == None
+    assert scraping_funcs.get_target_url(2,' ') == None
+    assert scraping_funcs.get_target_url(5,'\n') ==None
+    assert scraping_funcs.get_target_url(5,'\t') ==None
