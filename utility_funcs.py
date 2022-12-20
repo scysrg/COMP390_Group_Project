@@ -1,4 +1,5 @@
 def format_rating(rating_str: str):
+    """This function removes 'out of 5 stars' from incoming string. """
     rating_str = rating_str.replace(" out of 5 stars", "")
     return rating_str
 
