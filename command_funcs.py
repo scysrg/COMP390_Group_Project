@@ -25,10 +25,7 @@ def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listin
         db.populate_row(table_listing, db_data_entry[0], db_data_entry[1], db_data_entry[2], db_data_entry[3], db_data_entry[4])
     return listing_counter
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 7265bed9a199a2ea84ebf4a338c543a05dd319e3
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     print('Creatine database...')
