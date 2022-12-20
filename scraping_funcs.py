@@ -13,7 +13,8 @@ def get_target_url(page: int, keywords: str):
     """This function constructs the URL by incorporating the search keywords and page number and returns it."""
     #if keywords don't containg any alphabet characters, return base url
     if keywords.strip() == '':
-        return 'https://www.amazon.com'
+        print("not valid keyword for amazon seaching")
+        return None
     base_url = 'https://www.amazon.com/s?k='
     # replace spaces in keywords with '+'
     search_keywords_formatted = keywords.replace(' ', '+')

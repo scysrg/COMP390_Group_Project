@@ -108,10 +108,9 @@ def test_prompt_product(capfd, monkeypatch):
 
 def test_get_target_url():
     assert scraping_funcs.get_target_url(3,'test function') == 'https://www.amazon.com/s?k=test+function&page=3'
-    assert scraping_funcs.get_target_url(2,'') == 'https://www.amazon.com'
-    # this link will rediret you to amazon main page
-    assert scraping_funcs.get_target_url(2,' ') == 'https://www.amazon.com'
-    assert scraping_funcs.get_target_url(5,'\n') == 'https://www.amazon.com'
-    assert scraping_funcs.get_target_url(5,'\t') == 'https://www.amazon.com'
+    assert scraping_funcs.get_target_url(2,'') == None
+    assert scraping_funcs.get_target_url(2,' ') == None
+    assert scraping_funcs.get_target_url(5,'\n') ==None
+    assert scraping_funcs.get_target_url(5,'\t') ==None
 
 
