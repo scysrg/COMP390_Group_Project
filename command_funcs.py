@@ -1,7 +1,7 @@
 import requests
 
 import database_funcs as db
-import scrapping_funcs
+import scraping_funcs
 import ui_funcs as ui
 
 key_words_list= ['Over Ear Headphones', 'USB Microphones', '1080p Webcams', 'Capture Cards', '8-channel Audio Mixers', 'Gaming Laptops']
@@ -10,19 +10,19 @@ database_key_array = ['over_ear_headphones', 'usb_microphones', 'webcams_1080p',
 
 def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listings):
     """Scrapes data from the URL and puts the data into the database"""
-    search_url = scrapping_funcs.get_target_url(pg_num, key_words)
-    search_results = scrapping_funcs.get_one_page(search_url)
+    search_url = scraping_funcs.get_target_url(pg_num, key_words)
+    search_results = scraping_funcs.get_one_page(search_url)
     for item in search_results:
         listing_counter += 1
         if listing_counter > total_listings:
             break
         db_data_entry = [None, None, None, None, None]
         # FIll array with data
-        db_data_entry[0] = scrapping_funcs.get_product_title(item)
-        db_data_entry[1] = scrapping_funcs.get_product_ratings(item)
-        db_data_entry[2] = scrapping_funcs.get_num_of_rating(item)
-        db_data_entry[3] = scrapping_funcs.get_product_price(item)
-        db_data_entry[4] = scrapping_funcs.get_url_string(item)
+        db_data_entry[0] = scraping_funcs.get_product_title(item)
+        db_data_entry[1] = scraping_funcs.get_product_ratings(item)
+        db_data_entry[2] = scraping_funcs.get_num_of_rating(item)
+        db_data_entry[3] = scraping_funcs.get_product_price(item)
+        db_data_entry[4] = scraping_funcs.get_url_string(item)
         db.populate_row(table_listing, db_data_entry[0], db_data_entry[1], db_data_entry[2], db_data_entry[3], db_data_entry[4])
     return listing_counter
 
@@ -32,8 +32,7 @@ def _get_url_status(pg_num, key_words):
     response = requests.get(search_url, headers=scrapping_funcs.HEADER_FOR_GET_REQUEST)
     print(f"\nConnection Status [{response.status_code}]: {response.reason}")
 
-# Static global value
-listing_limit = 300
+
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     print('Creatine database...')
