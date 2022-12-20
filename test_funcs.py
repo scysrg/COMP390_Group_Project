@@ -91,3 +91,8 @@ def test_prompt_product(capfd, monkeypatch):
         out, err = capfd.readouterr()
         assert out == ">>Please enter a valid query as a number between 1 and 6>>"
     assert error.type is EOFError
+
+    test_str = '1'
+    sim_input = StringIO(test_str)
+    monkeypatch.setattr('sys.stdin', sim_input)
+    assert prompt_product() == 'over_ear_headphones'
