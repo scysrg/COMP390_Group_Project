@@ -1,16 +1,18 @@
 """This tests the functions of all core classes"""
 import pytest
-<<<<<<< HEAD
 
+import command_funcs as commands
 import scraping_funcs
-=======
->>>>>>> 5836e43eb4d9d3cbc49f24b76b18485ba3f00c72
 from database_funcs import *
 from ui_funcs import *
 from io import StringIO
 
 
 def test_populate_row(capfd):
+
+    # Will add the data to the correct table over_ear_headphones
+    commands.enter_database_data()
+    assert populate_row('over_ear_headphones', 'Generic overpriced headphones', 4.9, 1, 122.99, 'URL to awful headphones') == None
 
     # Number of ratings given exceeds integer limit
     with pytest.raises(OverflowError) as exception_info:
@@ -21,7 +23,6 @@ def test_populate_row(capfd):
     populate_row('usb microphones', None, None, None, None, None)
     out, err = capfd.readouterr()
     assert out == '(populate_database) A database error has occurred: near "microphones": syntax error\n'
-
 
 def test_check_input():
     assert check_input('32', 0, 50)
@@ -108,14 +109,8 @@ def test_prompt_product(capfd, monkeypatch):
     monkeypatch.setattr('sys.stdin', sim_input)
     assert prompt_product() == 'over_ear_headphones'
 
-
-<<<<<<< HEAD
-
 def test_get_target_url():
     assert scraping_funcs.get_target_url(3,'test function') == 'https://www.amazon.com/s?k=test+function&page=3'
     assert scraping_funcs.get_target_url(2,'') == 'https://www.amazon.com'
     # this link will rediret you to amazon main page
     assert scraping_funcs.get_target_url(2,' ') == 'https://www.amazon.com/s?k=+&page=2'
-=======
->>>>>>> 5836e43eb4d9d3cbc49f24b76b18485ba3f00c72
-
