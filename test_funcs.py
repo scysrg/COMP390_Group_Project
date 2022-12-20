@@ -18,6 +18,12 @@ def test_populate_row(capfd):
     assert out == '(populate_database) A database error has occurred: near "microphones": syntax error\n'
 
 
+def test_check_input():
+    assert check_input('32', 0, 50)
+    assert not check_input('32', 0, 25)
+    assert not check_input('Fred', 0, 5)
+
+
 def test_prompt_query(capfd, monkeypatch):
     # Determine what inputs could potentially crash the UI
     test_str = '\n'
@@ -96,3 +102,6 @@ def test_prompt_product(capfd, monkeypatch):
     sim_input = StringIO(test_str)
     monkeypatch.setattr('sys.stdin', sim_input)
     assert prompt_product() == 'over_ear_headphones'
+
+
+
