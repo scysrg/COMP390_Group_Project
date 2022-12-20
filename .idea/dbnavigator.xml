@@ -33,10 +33,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="322140d5-d9ff-4d81-9bf9-15620e730192" object-ref="schemas/main/tables/webcams_1080p" />
-      <object connection-id="322140d5-d9ff-4d81-9bf9-15620e730192" object-ref="schemas/main/tables/usb_microphones" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="322140d5-d9ff-4d81-9bf9-15620e730192" />

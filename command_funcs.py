@@ -6,7 +6,6 @@ key_words_list= ['Over Ear Headphones', 'USB Microphones', '1080p Webcams', 'Cap
 db_name = 'amazon_listings.db'
 database_key_array = ['over_ear_headphones', 'usb_microphones', 'webcams_1080p', 'capture_cards', 'audio_mixers_8channel', 'gaming_laptops']
 
-
 def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listings):
     """Scrapes data from the URL and puts the data into the database"""
     search_url = scrapping_funcs.get_target_url(pg_num, key_words)
@@ -25,7 +24,10 @@ def _scrape_data(key_words, pg_num, table_listing, listing_counter, total_listin
         db.populate_row(table_listing, db_data_entry[0], db_data_entry[1], db_data_entry[2], db_data_entry[3], db_data_entry[4])
     return listing_counter
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 05057f942e5f5e4013c6ed3b3682c2dfeb5e6670
 def enter_database_data():
     """Creates and then populates the database with LIMIT of 300 listings each"""
     print('Creatine database...')

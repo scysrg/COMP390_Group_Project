@@ -1,5 +1,4 @@
 """This module contains functions that scrape product data from Amazon's product listing pages"""
-
 import requests
 from bs4 import BeautifulSoup
 from utility_funcs import format_rating
@@ -9,7 +8,6 @@ HEADER_FOR_GET_REQUEST = (
     {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
      'Accept-language': 'en-US, en;q=0.5'}
 )
-
 
 def get_target_url(page: int, keywords: str):
     """This function constructs the URL by incorporating the search keywords and page number and returns it."""
@@ -27,6 +25,7 @@ def get_soup_format_obj(target_url):
     """This function returns searching results in a soup format objects from incoming url
     returns None if the get request doesn't work"""
     response_obj = requests.get(target_url, headers=HEADER_FOR_GET_REQUEST)
+    print(f"Status: {response_obj.reason}")
     # response.reaseon returns 'OK" when the get requests is successful
     if response_obj.reason == 'OK':
         # parse the HTML text using Beautifulsoup.
@@ -34,9 +33,7 @@ def get_soup_format_obj(target_url):
         return soup_format
     else:
         # prints reason when the get requests fail
-        print(f"Status: {response.reason}")
         return None
-
 
 def get_one_page(search_url):
     """This function returns gathers only the search results we are looking for: <div> tags, inside <div> tags look for 's-result-item', 's-search-result'"""
